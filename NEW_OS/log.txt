@@ -1,0 +1,10 @@
+compiling kernel...
+compiling bootlader...
+making image...
+1+0 records in
+1+0 records out
+512 bytes copied, 9.2901e-05 s, 5.5 MB/s
+1+0 records in
+1+0 records out
+64 bytes copied, 0.000104343 s, 613 kB/s
+done
