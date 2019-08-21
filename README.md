@@ -43,7 +43,7 @@ That being said...
 
 - 'safe' is a version of the 'original' applciation for which this project is known for, and also where all of the pictures (soon to be uploaded onto my website, which is being developed currently) come from. 
   - It is the last stable version.
-- 'current_revised' is an extension of that. It attempts to actually preform standard operating system tasks, like for instance, managing memory with paging. I never got far with it and it is in an unstable state.
+- 'current_revised' is an extension of that. It attempts to actually preform standard operating system tasks, like for instance, managing memory with paging. I never got far with it, and it is in an unstable state.
 - 'new_32bit_os' looks (at a glance) to be an older version of 'safe.' I am uncertain whether it is stable or not, be my guest to try.
 - 'NEW_OS' is a template for a project I never developed, mostly. I tried to make a UEFI/BIOS compatable bootloader and failed, then I gave up. The template is left.
 - 'os_third_take' is a project for a 64 bit OS. In this version, I actually use GRUB and make a bootable ISO image. I succeeded into entering long mode, and I was going to attempt to make a memory handler using paging. I stopped there.
