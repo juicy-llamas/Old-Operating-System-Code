@@ -94,6 +94,8 @@ elif [ "$1" = "export" ]; then
 		echo "export to image failed" | tee -a ../log.txt
 		exit 1
 	fi
+elif [ "$1" = "help" ]; then
+	echo "options are clean, compile, all, or export"
 fi
 
 cd $this_dir
