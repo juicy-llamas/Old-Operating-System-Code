@@ -35,7 +35,7 @@ dd if=kernel.img of=/dev/sdb bs=4M
 
 Where the 'root_file.asm' is the main file, that has all of the includes in it as well as trailing 0 space. Note that I did not use linkers in compilation (I used NASM itself for 'linking'), but it is quite possible with modifications to the code. I just found this much easier than actually learning linker script, at the time.
 
-### A Small Note about Version Control
+## A Small Note about Version Control
 
 First off, I was around 14-16 when I wrote this, and I was also antisocial, so I worked alone on a large majority of my projects. I only started using git when I was 18. Because of this, the version control 'system' is really not a system and is very sporadic. I am sure I have even more versions on other old computers, these were just consolidated in one convenient place. 
 
