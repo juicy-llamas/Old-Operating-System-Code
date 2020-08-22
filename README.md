@@ -13,11 +13,11 @@ If you want to run it on a live system (which I do not recommend, though *it doe
 the process I used was to image it to a USB using an imaging utility, like 
 Rufus for windows or DD for linux. Then, just boot from the USB in bios. 
 
-The particular version you may want to run would be in the called 'safe.' This version actually uses my own custom bootloader, so it runs on only a small subset of systems. All you have to do to actually make a boot drive is:
+The particular version you may want to run would be in the called 'safe.' This version actually uses my own custom bootloader, so it runs on only a small subset of systems. Here are shell commands illustrating the compilation/imaging process:
 
 ```
-./compile.sh
-dd if=kern.img of=/dev/yourusbnumber
+$ ./compile.sh
+$ dd if=kern.img of=/dev/yourusbnumber
 ```
 
 That should be it, and you should have a working boot drive.
@@ -29,15 +29,15 @@ Most of the versions should have a bash script called `compile.sh` or something 
 The general procedure for compiling goes something like this:
 
 ```
-nasm -f bin -o kernel.img root_file.asm
-dd if=kernel.img of=/dev/sdb bs=4M
+$ nasm -f bin -o kernel.img root_file.asm
+$ dd if=kernel.img of=/dev/sdb bs=4M
 ```
 
 Where the 'root_file.asm' is the main file, that has all of the includes in it as well as trailing 0 space. Note that I did not use linkers in compilation (I used NASM itself for 'linking'), but it is quite possible with modifications to the code. I just found this much easier than actually learning linker script, at the time.
 
 ## A Small Note about Version Control
 
-First off, I was around 14-16 when I wrote this, and I was also antisocial, so I worked alone on a large majority of my projects. I only started using git when I was 18. Because of this, the version control 'system' is really not a system and is very sporadic. I am sure I have even more versions on other old computers, these were just consolidated in one convenient place. 
+I was around 14-16 when I wrote this, and I worked alone on this projects. I only started using git when I was 18. Because of this, the version control 'system' is really not a system and is very sporadic. I am sure I have even more versions on other old computers, these were just consolidated in one convenient place. 
 
 That being said...
 
@@ -45,7 +45,7 @@ That being said...
   - It is the last stable version.
 - 'current_revised' is an extension of that. It attempts to actually preform standard operating system tasks, like for instance, managing memory with paging. I never got far with it, and it is in an unstable state.
 - 'new_32bit_os' looks (at a glance) to be an older version of 'safe.' I am uncertain whether it is stable or not, be my guest to try.
-- 'NEW_OS' is a template for a project I never developed, mostly. I tried to make a UEFI/BIOS compatable bootloader and failed, then I gave up. The template is left.
+- 'NEW_OS' is a template for a project I never developed, mostly. I tried to make a UEFI/BIOS compatable bootloader and failed, then I gave up. The template for what would have been a project is left.
 - 'os_third_take' is a project for a 64 bit OS. In this version, I actually use GRUB and make a bootable ISO image. I succeeded into entering long mode, and I was going to attempt to make a memory handler using paging. I stopped there.
 
 If you have gotten this far, enjoy looking through this repo, if for nothing else than to amuse yourself on a boring day.
