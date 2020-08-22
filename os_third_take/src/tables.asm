@@ -1,8 +1,10 @@
 ;defines the idt, the tss (MAYBE IF I NEED THIS), and related functions.
 
-;			+---+---+---+---+---+---+---+---+
+; 22 August 2020 (2 years after the fact): fixed erroneous tabulations in the ascii art.
+
+;		+---+---+---+---+---+---+---+---+
 ;flags:  	|pre| priv. |sto|   gate type   |
-;			+---+---+---+---+---+---+---+---+
+;		+---+---+---+---+---+---+---+---+
 
 _idt:
 	int_0:
@@ -406,16 +408,21 @@ exception_info_struct:
 
 exception_handler:
 	push rax
+	
+	; 22 August 2020: after looking at this briefly, I see loaded the value of rax into _rip five times. I think I meant to load 
+	; the values in the order that they were defined in the structure, so I went ahead and changed them. I have no idea, however,
+	; if that is the order that they are pushed onto the stack by the interrupt handler.
+	
 	mov rax, qword [rsp+8*2]
 	mov qword [exception_info_struct._rip], rax
 	mov rax, qword [rsp+8*3]
-	mov qword [exception_info_struct._rip], rax
+	mov qword [exception_info_struct._cs], rax
 	mov rax, qword [rsp+8*4]
-	mov qword [exception_info_struct._rip], rax
+	mov qword [exception_info_struct._rflags], rax
 	mov rax, qword [rsp+8*5]
-	mov qword [exception_info_struct._rip], rax
+	mov qword [exception_info_struct._rsp], rax
 	mov rax, qword [rsp+8*6]
-	mov qword [exception_info_struct._rip], rax
+	mov qword [exception_info_struct._ss], rax
 
 	;DO ANY OTHER EXCEPTION NOTIFICATION/TASK MANAGEMENT STUFF HERE
 
